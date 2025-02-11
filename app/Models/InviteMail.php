@@ -2,12 +2,17 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class InviteMail extends Model
 {
-    use HasFactory;
-
-    protected $fillable = ['sender', 'came', 'day', 'activity', 'place', 'description'];
+    protected $table = 'invite_mails';
+    protected $fillable = [
+        'sender',
+        'masuk',
+        'hari',
+        'kegiatan',
+        'tempat',
+        'keterangan',
+    ];
 }

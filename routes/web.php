@@ -2,6 +2,8 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\InviteMailController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminController;
+use App\Http\Middleware\AdminAuthMiddleware;
 
 // Halaman Login & Register
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
@@ -21,3 +23,9 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/admin/invite', [InviteMailController::class, 'store'])->name('invite.store');
     });
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/admin', [App\Http\Controllers\HomeController::class, 'admin'])->name('admin');
+Route::post('/admin/input', [AdminController::class, 'input'])->name('input');
