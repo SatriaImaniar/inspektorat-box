@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('sender');
             $table->date('masuk');
-            $table->timestamp('day');
+            $table->timestamp('hari');
             $table->string('kegiatan');
             $table->string('tempat');
             $table->text('keterangan');
